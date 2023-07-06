@@ -1,0 +1,10 @@
+README.md
+setup.py
+mywheel/__init__.py
+mywheel/__main__.py
+mywheel.egg-info/PKG-INFO
+mywheel.egg-info/SOURCES.txt
+mywheel.egg-info/dependency_links.txt
+mywheel.egg-info/entry_points.txt
+mywheel.egg-info/requires.txt
+mywheel.egg-info/top_level.txt

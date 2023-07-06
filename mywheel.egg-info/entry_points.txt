@@ -1,0 +1,2 @@
+[group_1]
+run = mywheel.__main__:main
