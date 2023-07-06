@@ -40,9 +40,9 @@ Similar to a CDE Spark Job, a CDE Spark Submit executes a Job with the differenc
 
 In this example we will run a CDE Spark Submit with the Wheel file.
 
-The Spark Job code can be found in ```mywheel/__main__.py``` file but it does not require modifications. If you are familiar with PySpark you might notice this is a very simple Spark SQL job.
+The Spark Job code can be found in ```mywheel/__main__.py``` file but it does not require modifications. If you are familiar with PySpark you might notice this is a very simple Spark SQL job for pure demo purposes.
 
-The Wheel has already been created for you and will automatically download to your the ```dist``` directory upon cloning this project.
+The Wheel has already been created for you and will automatically download to the ```dist``` directory in your local machine upon cloning this project.
 
 Once you have the CDE CLI installed on your terminal you can launch a CDE Job from local via the CDE CLI via the ```cde spark submit``` command. Copy the following command and execute it in your terminal:
 
