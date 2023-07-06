@@ -46,7 +46,9 @@ The Wheel has already been created for you and will automatically download to yo
 
 Once you have the CDE CLI installed on your terminal you can launch a CDE Job from local via the CDE CLI via the ```cde spark submit``` command. Copy the following command and execute it in your terminal:
 
-```cde spark submit --py-files dist/mywheel-0.0.1-py3-none-any.whl mywheel/__main__.py```
+```
+cde spark submit --py-files dist/mywheel-0.0.1-py3-none-any.whl mywheel/__main__.py
+```
 
 In the terminal, validate that the Spark Job has launched successfully and note the Job Run ID:
 
