@@ -34,11 +34,17 @@ Alternatively, if you don't have git installed on your machine, create a folder 
 
 ## Step by Step Instructions
 
-A CDE Job is Application code along with defined configurations and resources. Jobs can be run on demand or scheduled. An individual job execution is called a job run. Similar to a CDE Spark Job, a CDE Spark Submit executes a Job with the difference that it doesn't allow you to reuse the CDE Job Definition to rerun the job. The CDE Spark Submit is the quickest way to prototype a job.
+A CDE Job is Application code along with defined configurations and resources. Jobs can be run on demand or scheduled. An individual job execution is called a job run.
 
-In this example we will run a CDE Spark Submit with the Wheel file. The Wheel has already been created for you and will automatically download to your the ```dist``` directory upon cloning this project.
+Similar to a CDE Spark Job, a CDE Spark Submit executes a Job with the difference that it doesn't allow you to reuse the CDE Job Definition to rerun the job. The CDE Spark Submit is the quickest way to prototype a job.
 
-You can launch a CDE Job from local via the CDE CLI via the ```cde spark submit```. Copy the following command and execute it in your terminal:
+In this example we will run a CDE Spark Submit with the Wheel file.
+
+The Spark Job code can be found in ```mywheel/__main__.py``` file but it does not require modifications. If you are familiar with PySpark you might notice this is a very simple Spark SQL job.
+
+The Wheel has already been created for you and will automatically download to your the ```dist``` directory upon cloning this project.
+
+Once you have the CDE CLI installed on your terminal you can launch a CDE Job from local via the CDE CLI via the ```cde spark submit```. Copy the following command and execute it in your terminal:
 
 ```
 cde spark submit --py-files dist/mywheel-0.0.1-py3-none-any.whl mywheel/__main__.py
