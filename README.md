@@ -34,15 +34,13 @@ Alternatively, if you don't have git installed on your machine, create a folder 
 
 ## Step by Step Instructions
 
-A CDE Job is Application code along with defined configurations and resources. Jobs can be run on demand or scheduled. An individual job execution is called a job run.
-
-Similar to a CDE Spark Job, a CDE Spark Submit executes a Job with the difference that it doesn't allow you to reuse the CDE Job Definition to rerun the job. The CDE Spark Submit is the quickest way to prototype a job.
-
-In this example we will run a CDE Spark Submit with the Wheel file.
-
-The Spark Job code can be found in ```mywheel/__main__.py``` file but it does not require modifications. If you are familiar with PySpark you might notice this is a very simple Spark SQL job for pure demo purposes.
+The Spark Job code can be found in ```mywheel/__main__.py``` file but it does not require modifications. For demo purposes we have chosen to use a simple Spark SQL job.
 
 The Wheel has already been created for you and will automatically download to the ```dist``` directory in your local machine upon cloning this project.
+
+#### Using the Wheel with a CDE Spark Submit
+
+A CDE Spark Submit is the fastest way to prototype a Spark Job. In this example we will run a CDE Spark Submit with the Wheel file.
 
 Once you have the CDE CLI installed on your terminal you can launch a CDE Job from local via the CDE CLI via the ```cde spark submit``` command. Copy the following command and execute it in your terminal:
 
@@ -58,9 +56,59 @@ Next, navigate to the CDE Job Runs UI and validate job execution:
 
 ![alt text](img/cde_wheel_job_2.png)
 
-Open the Job Configurations tab and notice that the Wheel has been uploaded in a File Resource for you.
+Open the Job Configuration tab and notice that the Wheel has been uploaded in a File Resource for you.
 
 ![alt text](img/cde_wheel_job_3.png)
+
+However, notice that the Job Configuration tab does not provide means to edit or reschedule the job definition. In other words the entries in the Configuration tab are final. In order to be able to change the definition we will need to create a CDE Spark Job.
+
+#### Using the Wheel with a CDE Spark Job
+
+Similar to a CDE Spark Submit a CDE Spark Job is Application code to execute a Spark Job in a CDE Virtual Cluster. However, the CDE Job allows you to easily define, edit and reuse configurations and resources in future runs. Jobs can be run on demand or scheduled. An individual job execution is called a job run.
+
+In this example we will create a CDE Resource of type File and upload the Spark Application code and the Wheel dependency. Then, we will run the Job.
+
+Create the File Resource:
+
+```
+cde resource create --name mywheels
+```
+
+Upload Application Code and Wheel to the File Resource:
+
+```
+cde resource upload --name mywheels --local-path dist/mywheel-0.0.1-py3-none-any.whl
+```
+
+```
+cde resource upload --name mywheels --local-path mywheel/__main__.py
+```
+
+Navigate to the CDE Resource tab and validate that the Resource and the corresponding files are now available.
+
+![alt text](img/cde_wheel_job_7.png)
+
+![alt text](img/cde_wheel_job_8.png)
+
+Create the CDE Spark Job definition. Navigate to the CDE Jobs UI and notice a new CDE Spark Job has been created. The job hasn't run yet so only the Configuration tab is populated with the Spark Job definition.
+
+```
+cde job create --name cde_wheel_job --type spark --py-files mywheel-0.0.1-py3-none-any.whl --application-file __main__.py --mount-1-resource mywheels
+```
+
+Finally, run the job. Now the Job Runs will include a new entry reflecting Job execution:
+
+```
+cde job run --name cde_wheel_job
+```
+
+![alt text](img/cde_wheel_job_4.png)
+
+![alt text](img/cde_wheel_job_5.png)
+
+Notice that the CDE Job can be executed again. As mentioned earlier, this is because the CDE Job provides a reusable and editable definition.   
+
+![alt text](img/cde_wheel_job_6.png)
 
 
 ## Conclusions & Next Steps
