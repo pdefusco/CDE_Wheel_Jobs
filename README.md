@@ -108,7 +108,11 @@ cde job run --name cde_wheel_job
 
 ![alt text](img/cde_wheel_job_5.png)
 
-Notice that the CDE Job can be executed again. As mentioned earlier, this is because the CDE Job provides a reusable and editable definition.   
+Notice that the CDE Job definition can now be edited. This allows you to make changes to files and dependencies, create or change job execution schedule, and more.
+
+![alt text](img/cde_wheel_job_extra.png)
+
+For example, the CDE Job can now be executed again.
 
 ![alt text](img/cde_wheel_job_6.png)
 
