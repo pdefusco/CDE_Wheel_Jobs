@@ -68,6 +68,8 @@ Similar to a CDE Spark Submit a CDE Spark Job is Application code to execute a S
 
 In this example we will create a CDE Resource of type File and upload the Spark Application code and the Wheel dependency. Then, we will run the Job.
 
+Execute the following CDE CLI commands in your local terminal.
+
 Create the File Resource:
 
 ```
